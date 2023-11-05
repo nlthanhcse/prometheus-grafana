@@ -14,13 +14,13 @@ jobs:
       - Linux
     steps:
       - uses: actions/checkout@v4
-#      - name: Set up JDK 11 for x64
-#        uses: actions/setup-java@v3
-#        with:
-#          java-version: '17'
-#          distribution: 'corretto'
-#          cache: maven
-#        timeout-minutes: 30
+      - name: Set up JDK 11 for x64
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'corretto'
+          cache: maven
+        timeout-minutes: 30
       - name: Run the Maven to package the application
         run: mvn clean install
       - name: Copy JAR for staging folder
