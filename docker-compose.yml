@@ -28,3 +28,10 @@ services:
       - GF_SERVER_DOMAIN=localhost
       - GF_LOG_MODE=console file
       - GF_LOG_FILTERS=altering.notifier.slack:debug altermanager:debug ngalert:debug
+  hello:
+    image: nlthanhcse/prometheus-grafana
+    pull_policy: always
+    container_name: prometheus-grafana
+    restart: unless-stopped
+    ports:
+      - 9999:9999

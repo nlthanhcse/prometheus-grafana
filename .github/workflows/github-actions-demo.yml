@@ -43,7 +43,7 @@ jobs:
 #          file: ./docker/Dockerfile
 #          push: true
 #          tags: ${{ secrets.DOCKER_USERNAME }}/prometheus-grafana:latest
-      - name: Pull Docker Image
-        run: docker pull nlthanhcse/prometheus-grafana:latest
-      - name: Run Docker Container
-        run: docker run -d --name prometheus-grafana -p 9999:9999 prometheus-grafana:latest
+#      - name: Pull Docker Image
+#        run: docker pull nlthanhcse/prometheus-grafana:latest
+#      - name: Run Docker Container
+#        run: docker run -d --name prometheus-grafana -p 9999:9999 prometheus-grafana:latest
