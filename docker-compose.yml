@@ -31,7 +31,7 @@ services:
   hello:
     image: nlthanhcse/prometheus-grafana
     pull_policy: always
-    container_name: prometheus-grafana
+    container_name: hello
     restart: unless-stopped
     ports:
-      - 9999:9999
+      - 8080:8080
