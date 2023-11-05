@@ -12,7 +12,7 @@ jobs:
     runs-on:
       - self-hosted
       - Linux
-      - Linux
+    timeout-minutes: 10 # Increase the timeout to a suitable value
     steps:
       - uses: actions/checkout@v4
       - name: Set up JDK 17 for x64
