@@ -31,15 +31,19 @@ jobs:
 #          path: staging
       - name: Start External Applications with Docker Compose
         run: docker-compose -f ./docker-compose.yml up -d
-      - name: Log in to Docker Hub
-        uses: docker/login-action@v3
-        with:
-          username: ${{ env.USERNAME }}
-          password: ${{ env.PASSWORD }}
-      - name: Build and push Docker images with Dockerfile
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          file: ./docker/Dockerfile
-          push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/prometheus-grafana:latest
+#      - name: Log in to Docker Hub
+#        uses: docker/login-action@v3
+#        with:
+#          username: ${{ env.USERNAME }}
+#          password: ${{ env.PASSWORD }}
+#      - name: Build and push Docker images with Dockerfile
+#        uses: docker/build-push-action@v5
+#        with:
+#          context: .
+#          file: ./docker/Dockerfile
+#          push: true
+#          tags: ${{ secrets.DOCKER_USERNAME }}/prometheus-grafana:latest
+      - name: Pull Docker Image
+        run: docker pull nlthanhcse/prometheus-grafana:latest
+      - name: Run Docker Container
+        run: docker run -d --name prometheus-grafana -p 9999:9999 prometheus-grafana:latest
