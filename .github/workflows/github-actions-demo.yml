@@ -20,6 +20,7 @@ jobs:
           java-version: '17'
           distribution: 'corretto'
           cache: maven
+        timeout-minutes: 30
       - name: Run the Maven to package the application
         run: mvn clean install
       - name: Copy JAR for staging folder
