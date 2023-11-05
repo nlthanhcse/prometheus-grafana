@@ -5,6 +5,7 @@ on: [push]
 env:
   USERNAME: ${{ secrets.DOCKER_USERNAME }}
   PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+  SEGMENT_DOWNLOAD_TIMEOUT_MINS: '30'
 
 jobs:
   Explore-GitHub-Actions:
@@ -18,7 +19,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '17'
-          distribution: 'corretto'
+          distribution: 'oracle'
           cache: maven
         timeout-minutes: 30
       - name: Run the Maven to package the application
