@@ -10,6 +10,8 @@ services:
       - "--config.file=/etc/prometheus/prometheus.yml"
     ports:
       - 9090:9090
+    networks:
+      - application
   grafana:
     image: grafana/grafana-oss:latest
     pull_policy: always
@@ -28,6 +30,8 @@ services:
       - GF_SERVER_DOMAIN=localhost
       - GF_LOG_MODE=console file
       - GF_LOG_FILTERS=altering.notifier.slack:debug altermanager:debug ngalert:debug
+    networks:
+      - application
   hello:
     image: nlthanhcse/prometheus-grafana
     pull_policy: always
@@ -35,3 +39,8 @@ services:
     restart: unless-stopped
     ports:
       - 8080:8080
+    networks:
+      - application
+networks:
+  application:
+    driver: bridge
